@@ -1,0 +1,341 @@
+/* General Reset */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e0e0e0;
+  padding: 1rem 2rem;
+  color: #fff;
+  border-radius: 24px;
+  max-width: 88vw;
+  margin: 0 auto;
+  height: 65px;
+  margin-top: 20px;
+}
+
+.navbar-logo img {
+  width: 200px;
+  height: 80px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 24px;
+  font-family: "Playfair Display", serif;
+}
+
+.navbar-links li {
+  margin: 0;
+}
+
+.navbar-links a {
+  color: #333333;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.navbar-links a:hover {
+  border-bottom: 2px solid #ff6f61;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  background: url("#") no-repeat center center/cover;
+  color: #fff;
+  padding: 4rem 2rem;
+  height: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #333333;
+}
+
+.cta-button {
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 250px;
+  height: 25px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.cta-button:hover {
+  background-color: #e55d50;
+}
+
+/* Main Content */
+.main-content {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap onto the next line if necessary */
+  gap: 1rem; /* Space between items */
+  justify-content: space-around; /* Center items horizontally */
+}
+
+.feature {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  max-width: 450px;
+  width: calc(33.333% - 2rem); /* Three items per row with space between */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.feature-image-container {
+  position: relative; /* Ensure the color-square can be positioned relative to this container */
+  margin-bottom: 1rem;
+}
+
+.feature-image {
+  max-width: 100%;
+  height: 200px; /* Set a consistent height */
+  object-fit: cover;
+  margin-bottom: 50px;
+}
+
+.color-square {
+  position: absolute;
+  right: -12%; /* Adjusts the square to extend 35% outside of the image container */
+  bottom: -82%; /* Optionally adjust to extend outside from the bottom as well */
+  width: 150px;
+  height: 150px;
+  background-color: #e55d50;
+  transform: translate(0, 0); /* Moves the square out by 35% of its own size */
+  z-index: -1; /* Place behind the image */
+  border-radius: 8px; /* Round bottom left corners if desired */
+}
+
+.icon {
+  margin-left: 0.5rem; /* Space between the text and the icon */
+  vertical-align: middle; /* Aligns the icon with the text */
+}
+
+.feature-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-content p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.cta-link {
+  color: #ff6f61;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cta-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+/* Footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  height: 500px; /* Consider reducing this height if needed */
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 24px;
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem; /* Adjust padding if needed */
+  font-size: 0.8rem; /* Reduce font size for smaller content */
+
+  width: auto; /* Adjust width if needed */
+  margin-top: 50px;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.square1 {
+  position: absolute;
+  background-color: white;
+  width: 85px;
+  height: 250px;
+  left: 0;
+  top: 0;
+  border-bottom-right-radius: 24px;
+}
+.square2 {
+  position: absolute;
+  background-color: white;
+  width: 350px;
+  height: 40px;
+  right: 0;
+  top: 0;
+  color: #333;
+  font-size: 18px;
+  border-bottom-left-radius: 24px;
+}
+.square2 h3 {
+  text-align: center;
+  margin: 0 auto;
+  width: 350px;
+}
+.square2 h3 span {
+  color: #ff6f61;
+}
+.favicon {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  width: 50px;
+}
+
+.quote-button img {
+  width: 90px;
+  height: 40px;
+}
+
+.quote-button {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Space above the button */
+}
+.quote-button button {
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.quote-button button:hover {
+  background-color: #e55d50;
+}
+
+.Quote {
+  position: absolute; /* Position absolutely within the footer */
+  top: 20px; /* Distance from the top of the footer */
+  left: 120px; /* Distance from the left of the footer */
+  text-align: left;
+}
+
+.trust {
+  font-size: 38px;
+  width: 90vw;
+  margin-top: 150px;
+  text-align: center; /* Center text within the element */
+  margin-top: auto;
+}
+
+.get-in-touch {
+  position: absolute; /* Absolute positioning to place it precisely */
+  top: 80px; /* Adjust this value based on the height of .square2 */
+  left: 92%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 60%;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+/* Additional styling for Get in Touch Section */
+.get-in-touch h2 {
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.get-in-touch p {
+  margin: 0.5rem 0;
+  font-size: 14px;
+}
+
+.explore {
+  text-align: center;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.explore h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+.explore ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.explore ul li {
+  margin: 0.5rem 0;
+}
+
+.explore ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.explore ul li a:hover {
+  text-decoration: underline;
+}
