@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import gsap from "gsap";
 import "./VideoCarousel.css";
 
@@ -20,7 +20,8 @@ const VideoCarousel = () => {
   const textRef = useRef(null);
   const videoRef = useRef(null);
 
-  const videos = [video1, video2, video3, video4];
+  const videos = useMemo(() => [video1, video2, video3, video4], []);
+
   const currentText = videoTexts[currentIndex];
 
   useEffect(() => {
