@@ -1,4 +1,3 @@
-/* General Reset */
 body,
 h1,
 h2,
@@ -15,8 +14,9 @@ body {
   justify-content: center;
   overflow-x: hidden;
 }
-
-/* Navbar */
+.comfort {
+  height: 600px !important;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -58,7 +58,6 @@ body {
   border-bottom: 2px solid #ff6f61;
 }
 
-/* Hero Section */
 .hero-section {
   text-align: center;
   background: url("#") no-repeat center center/cover;
@@ -69,6 +68,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-top: 25px;
+  gap: 20px;
 }
 
 .hero-section h1 {
@@ -101,13 +101,13 @@ body {
   background-color: #e55d50;
 }
 
-/* Main Content */
 .main-content {
   padding: 2rem 1rem;
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap onto the next line if necessary */
-  gap: 1rem; /* Space between items */
-  justify-content: space-around; /* Center items horizontally */
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+  margin-top: 200px;
 }
 
 .feature {
@@ -117,37 +117,37 @@ body {
   padding: 2rem;
   text-align: center;
   max-width: 450px;
-  width: calc(33.333% - 2rem); /* Three items per row with space between */
-  box-sizing: border-box; /* Include padding in width calculation */
+  width: calc(33.333% - 2rem);
+  box-sizing: border-box;
+  margin-bottom: 100px;
 }
-
 .feature-image-container {
-  position: relative; /* Ensure the color-square can be positioned relative to this container */
+  position: relative;
   margin-bottom: 1rem;
 }
 
 .feature-image {
   max-width: 100%;
-  height: 200px; /* Set a consistent height */
+  height: 200px;
   object-fit: cover;
   margin-bottom: 50px;
 }
 
 .color-square {
   position: absolute;
-  right: -12%; /* Adjusts the square to extend 35% outside of the image container */
-  bottom: -82%; /* Optionally adjust to extend outside from the bottom as well */
+  right: -12%;
+  bottom: -82%;
   width: 150px;
   height: 150px;
   background-color: #e55d50;
-  transform: translate(0, 0); /* Moves the square out by 35% of its own size */
-  z-index: -1; /* Place behind the image */
-  border-radius: 8px; /* Round bottom left corners if desired */
+  transform: translate(0, 0);
+  z-index: -1;
+  border-radius: 8px;
 }
 
 .icon {
-  margin-left: 0.5rem; /* Space between the text and the icon */
-  vertical-align: middle; /* Aligns the icon with the text */
+  margin-left: 0.5rem;
+  vertical-align: middle;
 }
 
 .feature-content h2 {
@@ -171,76 +171,6 @@ body {
   text-decoration: underline;
 }
 
-/* Footer */
-/* Footer */
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1.5rem 2rem;
-  text-align: center;
-  height: 500px; /* Consider reducing this height if needed */
-  width: 90vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 24px;
-  position: relative;
-  margin-top: 100px;
-  margin-bottom: 50px;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 1rem; /* Adjust padding if needed */
-  font-size: 0.8rem; /* Reduce font size for smaller content */
-
-  width: auto; /* Adjust width if needed */
-  margin-top: 50px;
-}
-
-.footer-content p {
-  margin: 0;
-}
-
-.square1 {
-  position: absolute;
-  background-color: white;
-  width: 85px;
-  height: 250px;
-  left: 0;
-  top: 0;
-  border-bottom-right-radius: 24px;
-}
-.square2 {
-  position: absolute;
-  background-color: white;
-  width: 350px;
-  height: 40px;
-  right: 0;
-  top: 0;
-  color: #333;
-  font-size: 18px;
-  border-bottom-left-radius: 24px;
-}
-.square2 h3 {
-  text-align: center;
-  margin: 0 auto;
-  width: 350px;
-}
-.square2 h3 span {
-  color: #ff6f61;
-}
-.favicon {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-left: 15px;
-  margin-bottom: 10px;
-  width: 50px;
-}
-
 .quote-button img {
   width: 90px;
   height: 40px;
@@ -249,7 +179,7 @@ body {
 .quote-button {
   display: flex;
   align-items: center;
-  margin-top: 10px; /* Space above the button */
+  margin-top: 10px;
 }
 .quote-button button {
   background-color: #ff6f61;
@@ -269,9 +199,9 @@ body {
 }
 
 .Quote {
-  position: absolute; /* Position absolutely within the footer */
-  top: 20px; /* Distance from the top of the footer */
-  left: 120px; /* Distance from the left of the footer */
+  position: absolute;
+  top: 20px;
+  left: 120px;
   text-align: left;
 }
 
@@ -279,22 +209,21 @@ body {
   font-size: 38px;
   width: 90vw;
   margin-top: 150px;
-  text-align: center; /* Center text within the element */
+  text-align: center;
   margin-top: auto;
 }
 
 .get-in-touch {
-  position: absolute; /* Absolute positioning to place it precisely */
-  top: 80px; /* Adjust this value based on the height of .square2 */
+  position: absolute;
+  top: 80px;
   left: 92%;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%);
   width: 60%;
   text-align: center;
   padding: 1rem;
   border-radius: 12px;
 }
 
-/* Additional styling for Get in Touch Section */
 .get-in-touch h2 {
   margin-bottom: 1rem;
   opacity: 0.6;
