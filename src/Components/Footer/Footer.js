@@ -3,8 +3,29 @@ import facebook from "../../Assets/Images/facebook (1).png";
 import twitter from "../../Assets/Images/twitter.png";
 import youtube from "../../Assets/Images/youtube.png";
 import google from "../../Assets/Images/grew.png";
+import fgas from "../../Assets/Images/fgas.jpg";
+import gasSafe from "../../Assets/Images/gasSafe.png";
+import mcs from "../../Assets/Images/mcs.png";
 import { Link } from "react-router-dom";
 import "./Footer.css";
+import styled from "styled-components";
+
+const CertificationImagesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+`;
+
+const CertificationImage = styled.img`
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
 const Footer = () => {
   return (
     <footer className="footer">
@@ -49,6 +70,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+
       <div className="Quote">
         <h3>Unlock your comfort.</h3>
         <h3> Get a free quote today!</h3>
@@ -80,7 +102,30 @@ const Footer = () => {
         </h3>
       </div>
       <div className="trust">
-        <h1>Experience you can trust,since 2008. </h1>
+        <h1>Experience you can trust, since 2008.</h1>
+        <CertificationImagesContainer>
+          <a
+            href="https://fgasregister.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CertificationImage src={fgas} alt="FGAS Certification" />
+          </a>
+          <a
+            href="https://www.gassaferegister.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CertificationImage src={gasSafe} alt="Gas Safe Certification" />
+          </a>
+          <a
+            href="https://mcscertified.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CertificationImage src={mcs} alt="MCS Certification" />
+          </a>
+        </CertificationImagesContainer>
       </div>
       <div className="footer-content">
         <p>&copy; 2024 Dalliam. All rights reserved.</p>
