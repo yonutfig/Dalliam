@@ -19,17 +19,9 @@
   opacity: 1;
 }
 
-.carousel-text.fade-out {
-  opacity: 0;
-}
-
-.carousel-text.fade-in {
-  opacity: 1;
-}
-
 .carousel-text {
   position: absolute;
-  top: 70%;
+  bottom: 20px;
   left: 7%;
   transform: translateY(-50%);
   color: #fff;
@@ -42,4 +34,38 @@
   opacity: 1;
   transition: opacity 1.5s ease-in-out;
   pointer-events: none;
+}
+
+.carousel-text.fade-out {
+  opacity: 0;
+}
+
+.carousel-text.fade-in {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90vw;
+    height: 60vh;
+  }
+
+  .carousel-text {
+    font-size: 4rem;
+    bottom: 15px;
+    left: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    width: 95vw;
+    height: 50vh;
+  }
+
+  .carousel-text {
+    font-size: 3rem;
+    bottom: 10px;
+    left: 3%;
+  }
 }

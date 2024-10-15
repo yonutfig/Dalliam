@@ -12,12 +12,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div
-        style={{
-          marginBottom: "200px",
-          display: "flex",
-        }}
-      >
+      <div style={{ marginBottom: "200px" }}>
         <VideoCarousel />
       </div>
       <div className="home-container">
