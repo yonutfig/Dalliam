@@ -12,7 +12,7 @@ li {
 body {
   display: flex;
   justify-content: center;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 .comfort {
   height: 600px !important;
