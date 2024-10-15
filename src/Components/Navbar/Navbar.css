@@ -8,6 +8,7 @@ li {
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   overflow-x: hidden !important;
 }
@@ -22,7 +23,7 @@ body {
   align-items: center;
   background-color: #e0e0e0;
   padding: 1rem 2rem;
-  color: #fff;
+  color: #595959;
   border-radius: 24px;
   width: 88vw;
   margin: 0 auto;
@@ -34,14 +35,14 @@ body {
 
 .navbar-logo img {
   width: 200px;
-  height: 80px;
+  height: auto;
 }
 
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 2rem;
-  font-size: 24px;
+  gap: 1.5rem;
+  font-size: 20px;
   font-family: "Playfair Display", serif;
 }
 
@@ -62,7 +63,7 @@ body {
 .menu-icon {
   display: none;
   font-size: 32px;
-  color: #595959;
+  color: #ff6f61;
   cursor: pointer;
   z-index: 101;
 }
@@ -93,20 +94,20 @@ body {
     top: 0;
     right: 0;
     background-color: #e0e0e0;
-    margin-top: 20px !important;
-    width: 30vw;
-    height: 35vh;
+    margin-top: 0;
+    width: 75vw;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     visibility: hidden;
     z-index: 1000;
-    border-radius: 24px;
+    border-radius: 0 0 0 24px;
     padding-top: 60px;
-    overflow: hidden;
+    overflow-y: auto;
   }
 
   .navbar-links.active {
@@ -119,53 +120,36 @@ body {
   }
 
   .navbar-links li {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
   .navbar-links li {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .navbar-logo img {
     width: 150px;
-    height: 60px;
+    height: auto;
   }
 
   .navbar {
-    padding: 1rem;
-  }
-
-  .menu-icon {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 101;
-  }
-
-  .close-icon {
-    display: none;
-    font-size: 32px;
-    color: #ff6f61;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-weight: bold;
-  }
-
-  .navbar-links.active .close-icon {
-    display: block;
+    padding: 0.5rem;
   }
 
   .navbar-links {
-    width: 30vw;
-    height: 40vh;
-    padding-top: 60px;
+    width: 80vw;
+    height: 100vh;
   }
 }
 
 .navbar-links {
   transition: transform 0.4s cubic-bezier(0.7, 0.3, 0.1, 1);
+}
+
+@media only screen and (orientation: landscape) and (max-width: 768px) {
+  .navbar-links {
+    width: 60vw;
+  }
 }

@@ -17,11 +17,11 @@ const Navbar = () => {
           <img src={logo} alt="Company Logo" className="logo-image" />
         </div>
         <div className="menu-icon" onClick={toggleMenu}>
-          &#9776; {/* Hamburger Icon */}
+          &#9776;
         </div>
         <ul className={`navbar-links ${menuActive ? "active" : ""}`}>
           <div className="close-icon" onClick={toggleMenu}>
-            &times; {/* Close Icon */}
+            &times;
           </div>
           <li>
             <Link to="/" onClick={toggleMenu}>
