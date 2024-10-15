@@ -1,17 +1,17 @@
+/* Default styles (desktop first approach) */
 .footer {
   background-color: #333;
   color: #fff;
   padding: 1.5rem 2rem;
   text-align: center;
-  height: 650px;
-  width: 90vw;
+  height: auto;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 24px;
-  position: relative;
-  margin: 0 auto !important;
-  margin-bottom: 30px !important;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .footer-content {
@@ -20,7 +20,6 @@
   justify-content: center;
   padding: 1rem;
   font-size: 0.8rem;
-
   width: auto;
   margin-top: 50px;
 }
@@ -34,34 +33,42 @@
   background-color: #f4f4f4;
   width: 85px;
   height: 250px;
-  left: 0;
+  left: 20px;
   top: 0;
+  transform: translate(0, 0);
   border-bottom-right-radius: 24px;
+  z-index: 1;
 }
+
 .square2 {
   position: absolute;
   background-color: #f4f4f4;
   width: 350px;
   height: 40px;
-  right: 0;
+  right: 50px;
   top: 0;
+  transform: translate(0, 0);
   color: #333;
   font-size: 18px;
   border-bottom-left-radius: 24px;
+  z-index: 1;
 }
+
 .square2 h3 {
   text-align: center;
   margin: 0 auto;
-  width: 350px;
+  width: 100%;
 }
+
 .square2 h3 span {
   color: #ff6f61;
 }
+
 .favicon {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  margin-left: 15px;
+  margin-left: 25px;
   margin-bottom: 10px;
   width: 50px;
 }
@@ -76,6 +83,7 @@
   align-items: center;
   margin-top: 10px;
 }
+
 .quote-button button {
   background-color: #ff6f61;
   color: #fff;
@@ -110,10 +118,10 @@
 
 .get-in-touch {
   position: absolute;
-  top: 80px;
+  top: 50px;
   left: 92%;
-  transform: translateX(-50%);
-  width: 60%;
+  transform: translateX(-80%);
+  width: max-content;
   text-align: center;
   padding: 1rem;
   border-radius: 12px;
@@ -136,6 +144,7 @@
   width: max-content;
   border-radius: 12px;
   color: #fff;
+  margin-bottom: 20px;
 }
 
 .explore h2 {
@@ -162,4 +171,158 @@
 
 .explore ul li a:hover {
   text-decoration: underline;
+}
+
+/*  
+@media (min-width: 768px){
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .get-in-touch {
+    position: static; 
+    transform: none;
+    margin: 2rem 0;
+    width: 25%; 
+    padding: 1.5rem;
+  }
+
+  .quote-button {
+    margin-top: 30px;
+  }
+
+  .trust {
+    font-size: 12px;
+    margin-top: 50px;
+    text-align: bottom;
+  }
+
+  .explore {
+    width: 50%;
+    margin-bottom: 0;
+  }
+  .square1 {
+    position: absolute;
+    transform: translate(-15%);
+    bottom: 20%;
+    padding: 0;
+  }
+  .google-img {
+    display: none;
+  }
+  .square2 {
+    position: absolute;
+    transform: translate(10%);
+  }
+} 
+
+/* Mobile adjustments (max-width: 768px) */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .get-in-touch {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 80%;
+    padding: 1rem;
+  }
+
+  .trust {
+    font-size: 28px;
+    margin-top: 80px;
+  }
+
+  .quote-button {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .quote-button button {
+    width: 100%;
+  }
+}
+
+/* Smaller screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem;
+  }
+
+  .get-in-touch {
+    width: 90%;
+  }
+
+  .trust {
+    font-size: 1rem;
+  }
+
+  .explore h2 {
+    font-size: 1.2rem;
+  }
+
+  .explore ul li a {
+    font-size: 0.9rem;
+  }
+
+  .quote-button {
+    margin-bottom: 10px;
+  }
+
+  .explore {
+    margin-top: 100px !important;
+  }
+
+  .get-in-touch {
+    margin-top: 150px;
+  }
+  .square1 {
+    display: none;
+  }
+
+  .square2 {
+    display: none;
+  }
+  .google-img {
+    display: none;
+  }
+}
+
+/* Landscape view (max-width: 768px) */
+@media (orientation: landscape) and (max-width: 768px) {
+  .footer {
+    padding: 1rem;
+  }
+
+  .trust {
+    font-size: 22px;
+  }
+
+  .quote-button {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .square1 {
+    position: absolute;
+  }
+
+  .square2 {
+    position: absolute;
+    left: 300px;
+  }
 }

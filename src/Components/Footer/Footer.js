@@ -76,7 +76,7 @@ const Footer = () => {
         <h3> Get a free quote today!</h3>
         <div className="quote-button">
           <button>Get Started Now</button>
-          <span>
+          <span className="google-img">
             <img src={google} alt="Google Reviews" />
           </span>
         </div>
