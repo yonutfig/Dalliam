@@ -156,8 +156,8 @@ li {
   }
 
   .navbar-links {
-    width: 70%;
-    height: 60vh;
+    width: 30vw;
+    height: 40vh;
     padding-top: 60px;
   }
 }
