@@ -25,13 +25,13 @@ li {
   margin: 0 auto;
   height: 65px;
   margin-top: 20px;
+  position: relative;
+  z-index: 100;
 }
+
 .navbar-logo img {
   width: 200px;
   height: 80px;
-}
-.home-container {
-  font-family: "Playfair Display", serif;
 }
 
 .navbar-links {
@@ -54,4 +54,114 @@ li {
 
 .navbar-links a:hover {
   border-bottom: 2px solid #ff6f61;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 32px;
+  color: #595959;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.close-icon {
+  display: none;
+  font-size: 32px;
+  color: #ff6f61;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    color: #ff6f61;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-weight: bold;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #e0e0e0;
+    width: 30vw;
+    height: 40vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    visibility: hidden;
+    z-index: 1000;
+    border-radius: 8px;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .navbar-links.active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .navbar-links.active .close-icon {
+    display: block;
+  }
+
+  .navbar-links li {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-links li {
+    font-size: 1.3rem;
+  }
+
+  .navbar-logo img {
+    width: 150px;
+    height: 60px;
+  }
+
+  .navbar {
+    padding: 1rem;
+  }
+
+  .menu-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 101;
+  }
+
+  .close-icon {
+    display: none;
+    font-size: 32px;
+    color: #ff6f61;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+  }
+
+  .navbar-links.active .close-icon {
+    display: block;
+  }
+
+  .navbar-links {
+    width: 70%;
+    height: 60vh;
+    padding-top: 60px;
+  }
+}
+
+.navbar-links {
+  transition: transform 0.4s cubic-bezier(0.7, 0.3, 0.1, 1);
 }
