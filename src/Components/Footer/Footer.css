@@ -121,6 +121,7 @@
   left: 92%;
   transform: translateX(-80%);
   width: max-content;
+  height: max-content;
   text-align: center;
   padding: 1rem;
   border-radius: 12px;
@@ -183,7 +184,7 @@
     position: relative;
     left: 0;
     transform: none;
-    width: 80%;
+    width: max-content;
     padding: 1rem;
   }
 
@@ -208,7 +209,7 @@
   }
 
   .get-in-touch {
-    width: 90%;
+    width: max-content;
   }
 
   .trust {
@@ -259,7 +260,7 @@
     position: relative;
     left: 0;
     transform: none;
-    width: 80%;
+    width: max-content;
     padding: 1rem;
     margin: 20px auto;
   }
@@ -307,7 +308,7 @@
     position: relative;
     left: 0;
     transform: none;
-    width: 80%;
+    width: max-content;
     padding: 1rem;
     margin: 20px auto;
   }
@@ -360,7 +361,7 @@
   }
 
   .get-in-touch {
-    width: 50%;
+    width: max-content;
     margin: 2rem auto;
     padding: 1.5rem;
     transform: none;
