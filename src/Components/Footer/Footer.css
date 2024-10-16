@@ -121,7 +121,6 @@
   left: 92%;
   transform: translateX(-80%);
   width: max-content;
-  height: max-content;
   text-align: center;
   padding: 1rem;
   border-radius: 12px;
@@ -210,6 +209,7 @@
 
   .get-in-touch {
     width: max-content;
+    transform: translate(35%);
   }
 
   .trust {
@@ -246,6 +246,12 @@
 
   .google-img {
     display: none;
+  }
+  .Quote {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    transform: translate(-8%);
   }
 }
 
