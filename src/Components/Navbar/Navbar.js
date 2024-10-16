@@ -19,36 +19,38 @@ const Navbar = () => {
         <div className="menu-icon" onClick={toggleMenu}>
           &#9776;
         </div>
-        <ul className={`navbar-links ${menuActive ? "active" : ""}`}>
+        <div className={`burger-menu ${menuActive ? "active" : ""}`}>
           <div className="close-icon" onClick={toggleMenu}>
             &times;
           </div>
-          <li>
-            <Link to="/" onClick={toggleMenu}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/aircon" onClick={toggleMenu}>
-              Aircon
-            </Link>
-          </li>
-          <li>
-            <Link to="/heat-pumps" onClick={toggleMenu}>
-              Heat Pumps
-            </Link>
-          </li>
-          <li>
-            <Link to="/service" onClick={toggleMenu}>
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" onClick={toggleMenu}>
-              Contact
-            </Link>
-          </li>
-        </ul>
+          <ul className="navbar-links">
+            <li>
+              <Link to="/" onClick={toggleMenu}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/aircon" onClick={toggleMenu}>
+                Aircon
+              </Link>
+            </li>
+            <li>
+              <Link to="/heat-pumps" onClick={toggleMenu}>
+                Heat Pumps
+              </Link>
+            </li>
+            <li>
+              <Link to="/service" onClick={toggleMenu}>
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={toggleMenu}>
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   );

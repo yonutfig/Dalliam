@@ -1,4 +1,3 @@
-/* Default styles (desktop first approach) */
 .footer {
   background-color: #333;
   color: #fff;
@@ -173,60 +172,6 @@
   text-decoration: underline;
 }
 
-/*  
-@media (min-width: 768px){
-  .footer {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 2rem;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    padding: 2rem;
-  }
-
-  .get-in-touch {
-    position: static; 
-    transform: none;
-    margin: 2rem 0;
-    width: 25%; 
-    padding: 1.5rem;
-  }
-
-  .quote-button {
-    margin-top: 30px;
-  }
-
-  .trust {
-    font-size: 12px;
-    margin-top: 50px;
-    text-align: bottom;
-  }
-
-  .explore {
-    width: 50%;
-    margin-bottom: 0;
-  }
-  .square1 {
-    position: absolute;
-    transform: translate(-15%);
-    bottom: 20%;
-    padding: 0;
-  }
-  .google-img {
-    display: none;
-  }
-  .square2 {
-    position: absolute;
-    transform: translate(10%);
-  }
-} 
-
-/* Mobile adjustments (max-width: 768px) */
 @media (max-width: 768px) {
   .footer {
     flex-direction: column;
@@ -257,7 +202,6 @@
   }
 }
 
-/* Smaller screens (max-width: 480px) */
 @media (max-width: 480px) {
   .footer {
     padding: 1rem;
@@ -290,6 +234,7 @@
   .get-in-touch {
     margin-top: 150px;
   }
+
   .square1 {
     display: none;
   }
@@ -297,19 +242,26 @@
   .square2 {
     display: none;
   }
+
   .google-img {
     display: none;
   }
 }
 
-/* Landscape view (max-width: 768px) */
-@media (orientation: landscape) and (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .footer {
     padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .trust {
-    font-size: 22px;
+  .get-in-touch {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 80%;
+    padding: 1rem;
+    margin: 20px auto;
   }
 
   .quote-button {
@@ -317,12 +269,136 @@
     justify-content: center;
   }
 
-  .square1 {
-    position: absolute;
+  .trust {
+    font-size: 1.5rem;
+    margin-top: 40px;
   }
 
+  .square1,
+  .square2 {
+    display: none;
+  }
+
+  .explore {
+    width: 80%;
+    margin-top: 20px;
+    padding: 1rem;
+  }
+
+  .google-img {
+    display: none;
+  }
+
+  .Quote {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    transform: translate(-40%);
+  }
+}
+@media (orientation: landscape) and (min-width: 769px) and (max-width: 1024px) {
+  .footer {
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .get-in-touch {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 80%;
+    padding: 1rem;
+    margin: 20px auto;
+  }
+
+  .quote-button {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .trust {
+    font-size: 1.5rem;
+    margin-top: 40px;
+  }
+
+  .square1,
+  .square2 {
+    display: none;
+  }
+
+  .explore {
+    width: 80%;
+    margin-top: 20px;
+    padding: 1rem;
+  }
+
+  .google-img {
+    display: none;
+  }
+
+  .Quote {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    transform: translate(-40%);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .footer {
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .get-in-touch {
+    width: 50%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    transform: none;
+  }
+
+  .quote-button {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  .trust {
+    font-size: 2rem;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .explore {
+    width: 50%;
+    margin: 2rem auto;
+  }
+
+  .square1 {
+    position: absolute;
+    left: 0;
+    top: -5px;
+  }
   .square2 {
     position: absolute;
-    left: 300px;
+    transform: translate(10%);
+    top: -10px;
+  }
+  .google-img {
+    display: none;
+  }
+
+  .get-in-touch {
+    transform: translate(-60%);
+    top: -8%;
   }
 }

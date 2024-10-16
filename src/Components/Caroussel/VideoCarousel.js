@@ -21,7 +21,6 @@ const VideoCarousel = () => {
   const videoRef = useRef(null);
 
   const videos = useMemo(() => [video1, video2, video3, video4], []);
-
   const currentText = videoTexts[currentIndex];
 
   useEffect(() => {
@@ -82,6 +81,8 @@ const VideoCarousel = () => {
         className={`carousel-video ${fade ? "fade-out" : "fade-in"}`}
         autoPlay
         muted
+        playsInline
+        loop
         key={currentIndex}
         onEnded={handleVideoEnd}
       >

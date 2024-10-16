@@ -17,6 +17,7 @@
   object-fit: cover;
   transition: opacity 1.5s ease-in-out;
   opacity: 1;
+  pointer-events: none;
 }
 
 .carousel-text {
@@ -44,10 +45,23 @@
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .carousel-container {
     width: 90vw;
     height: 60vh;
+  }
+
+  .carousel-text {
+    font-size: 3.5rem;
+    bottom: 15px;
+    left: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90vw;
+    height: 50vh;
   }
 
   .carousel-text {
@@ -57,15 +71,42 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 350px) and (max-width: 480px) {
   .carousel-container {
     width: 95vw;
-    height: 50vh;
+    height: 40vh;
   }
 
   .carousel-text {
     font-size: 1.5rem;
     bottom: 10px;
     left: 3%;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 768px) {
+  .carousel-container {
+    height: 40vh;
+  }
+
+  .carousel-text {
+    font-size: 1.5rem;
+    bottom: 10px;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 769px) and (max-width: 1024px) {
+  .carousel-container {
+    height: 88vh;
+  }
+
+  .carousel-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-container {
+    height: 88vh;
   }
 }
