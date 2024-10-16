@@ -162,7 +162,7 @@ header nav a {
   opacity: var(--item5-opacity);
   pointer-events: none;
 }
-/* animation text in item2 */
+
 .carousel .list .item:nth-child(2) .introduce .title,
 .carousel .list .item:nth-child(2) .introduce .topic,
 .carousel .list .item:nth-child(2) .introduce .des,
@@ -404,6 +404,9 @@ header nav a {
   filter: blur(130px);
 }
 @media screen and (max-width: 991px) {
+  .carousel {
+    margin-top: 40px;
+  }
   .carousel .list .item {
     width: 90%;
   }
@@ -417,6 +420,7 @@ header nav a {
 @media screen and (max-width: 767px) {
   .carousel {
     height: 600px;
+    margin-top: 40px;
   }
   .carousel .list .item {
     width: 100%;

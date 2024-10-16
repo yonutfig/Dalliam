@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaYoutube,
   FaClock,
+  FaPhone,
 } from "react-icons/fa";
 
 const HeaderTop = styled.div`
@@ -17,6 +18,10 @@ const HeaderTop = styled.div`
   width: 100vw;
   background-color: black;
   color: white;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const LeftSection = styled.div`
@@ -45,6 +50,8 @@ const SocialIcon = styled.a`
 `;
 
 const Header = () => {
+  const phoneNumber = "01695 423802";
+
   return (
     <HeaderTop>
       <LeftSection>
@@ -58,6 +65,19 @@ const Header = () => {
             style={{ color: "white", textDecoration: "none" }}
           >
             <span>Email: info@Dalliam.co.uk</span>
+          </a>
+        </div>
+        <div>
+          <FaPhone style={{ marginLeft: "20px" }} />
+          <a
+            href={`tel:${phoneNumber}`}
+            style={{
+              color: "white",
+              textDecoration: "none",
+              marginLeft: "5px",
+            }}
+          >
+            {phoneNumber}
           </a>
         </div>
       </LeftSection>

@@ -7,10 +7,16 @@ import SliderExtra from "../Components/AirConInfo/AirConInfo";
 const Aircon = () => {
   return (
     <>
-      <div style={{ marginBottom: "20px" }}>
+      <div className="navbar-style" style={{ marginBottom: "20px" }}>
         <Navbar />
       </div>
-      <div style={{ margin: "50px 0", width: "100vw", height: "100wh" }}>
+      <div
+        style={{
+          margin: "50px 0",
+          width: "100vw",
+          minHeight: "calc(100vh - 200px)",
+        }}
+      >
         <Slider />
       </div>
       <div
@@ -18,13 +24,12 @@ const Aircon = () => {
           margin: "100px 0",
           display: "flex",
           alignItems: "center",
-          height: "100wh",
           width: "100vw",
         }}
       >
         <SliderExtra />
       </div>
-      <div style={{ marginBottom: "60px" }}>
+      <div className="footer-container">
         <Footer />
       </div>
     </>

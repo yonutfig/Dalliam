@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../Assets/Images/Capture-removebg-preview.png";
-import { FaPhone, FaArrowRight } from "react-icons/fa"; // Importing the phone and quote icons
+import { FaPhone, FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
 import styled from "styled-components";
 
 const NavbarContainer = styled.div`
@@ -18,11 +18,21 @@ const NavbarWrapper = styled.nav`
   margin: 0 auto;
   height: 65px;
   margin-top: 20px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 
 const LogoImage = styled.img`
   width: 200px;
   height: 80px;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: auto;
+  }
 `;
 
 const NavbarLinks = styled.ul`
@@ -31,22 +41,40 @@ const NavbarLinks = styled.ul`
   gap: 2rem;
   font-size: 24px;
   font-family: "Playfair Display", serif;
-  margin: 0; /* Ensure there's no margin */
-  padding: 0; /* Ensure there's no padding */
-  flex-wrap: nowrap; /* Prevent wrapping */
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background: white;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+  }
 `;
 
 const NavbarLink = styled(Link)`
   color: #595959;
   text-decoration: none;
   font-weight: 550;
-  transition: color 0.3s ease, border-bottom 0.3s ease; /* Add transition for color and border */
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  font-size: 24px;
 
   &:hover {
     border-bottom: 2px solid #ff6f61;
-    color: #ff6f61; /* Change text color on hover */
+    color: #ff6f61;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    padding: 0.5rem 0;
   }
 `;
 
@@ -62,6 +90,7 @@ const QuoteButton = styled(Link)`
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-top: 5px;
   font-size: 24px;
+
   &:hover {
     background-color: #000;
     color: white;
@@ -70,6 +99,15 @@ const QuoteButton = styled(Link)`
 
   svg {
     margin-left: 8px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 932px) and (max-height: 430px) {
+    display: none;
   }
 `;
 
@@ -90,10 +128,37 @@ const CallButton = styled.a`
     color: #000;
     text-decoration: underline;
   }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 932px) and (max-height: 430px) {
+    display: none;
+  }
+`;
+
+const HamburgerButton = styled.button`
+  display: none; // Hide by default
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: #ff6f61;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const phoneNumber = "01695 423802";
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <NavbarContainer>
@@ -101,7 +166,10 @@ const Navbar = () => {
         <div className="navbar-logo">
           <LogoImage src={logo} alt="Company Logo" />
         </div>
-        <NavbarLinks>
+        <HamburgerButton onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </HamburgerButton>
+        <NavbarLinks isOpen={isMenuOpen}>
           <li>
             <NavbarLink to="/">Home</NavbarLink>
           </li>
@@ -118,13 +186,13 @@ const Navbar = () => {
             <NavbarLink to="/contact">Contact</NavbarLink>
           </li>
           <li>
-            <QuoteButton to="/get-a-quote">
+            <QuoteButton className="quote-button" to="/get-a-quote">
               Get a Quote | <FaArrowRight />
             </QuoteButton>
           </li>
           <li>
-            <CallButton href={`tel:${phoneNumber}`}>
-              <FaPhone style={{ marginRight: "8px", color: "black" }} />{" "}
+            <CallButton className="call-button" href={`tel:${phoneNumber}`}>
+              <FaPhone style={{ marginRight: "8px", color: "black" }} />
               {phoneNumber}
             </CallButton>
           </li>

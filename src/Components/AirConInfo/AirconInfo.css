@@ -1,12 +1,17 @@
 body {
-    font-family: "Manrope", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    color: #7b8893;
-    background-color: #f0f1f3;
+  font-family: "Manrope", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #7b8893;
+  background-color: #f0f1f3;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Manrope", Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    color: #db4a3d;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Manrope", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: #db4a3d;
 }

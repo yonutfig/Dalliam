@@ -1,0 +1,50 @@
+.aircon-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the footer is always pushed to the bottom */
+}
+
+.main-content {
+  flex: 1; /* Allows the main content to grow and fill the space */
+  margin-bottom: 20px; /* Gives some space before the footer */
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Ensure consistent font across devices */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1,
+  h2,
+  h3,
+  p {
+    font-size: 90%; /* Adjust font size for tablets */
+  }
+
+  /* Add any other responsive styles for elements here */
+  .footer-container {
+    padding: 20px; /* Smaller padding for footer on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  h1,
+  h2,
+  h3,
+  p {
+    font-size: 80%; /* Further adjust font size for phones */
+  }
+
+  .navbar-style {
+    margin-bottom: 40px !important;
+  }
+
+  /* You can also adjust margins and paddings for specific elements */
+  .slider-container {
+    width: 100%; /* Ensure the slider takes full width */
+  }
+}

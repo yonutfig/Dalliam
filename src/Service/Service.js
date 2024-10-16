@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ServiceNavbar from "./services-navbar";
 import Footer from "../Components/Footer/Footer";
@@ -13,9 +12,6 @@ import {
   FaCertificate,
 } from "react-icons/fa";
 import ContactUs from "../Components/ContactForm/ContactUs";
-import fgas from "../Assets/Images/fgas.jpg";
-import gasSafe from "../Assets/Images/gasSafe.png";
-import mcs from "../Assets/Images/mcs.png";
 
 const FullWidthImageSection = styled.div`
   position: relative;
@@ -23,9 +19,10 @@ const FullWidthImageSection = styled.div`
   height: 60vh;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   padding-left: 50px;
+  padding-bottom: 30px;
   color: #fff;
   background-image: url(${Meeting});
   background-position: center 30%;
@@ -48,34 +45,23 @@ const FullWidthImageSection = styled.div`
     position: relative;
     z-index: 1;
   }
+
+  @media (max-width: 768px) {
+    height: 40vh;
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 3.5rem;
   text-align: left;
   z-index: 1;
-  margin-top: 150px;
+  margin: 0;
   user-select: none;
-  margin-left: 200px;
-`;
 
-const ButtonContainer = styled.div`
-  margin-left: 200px;
-
-  z-index: 1;
-`;
-
-const ServiceButton = styled(Link)`
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.3s;
-
-  &:hover {
-    transform: translateY(-2px);
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
   }
 `;
 
@@ -84,6 +70,7 @@ const ServicesSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 50px 0;
+  width: 100%;
 `;
 
 const ServicesGrid = styled.div`
@@ -91,9 +78,10 @@ const ServicesGrid = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  width: 88vw;
   max-width: 1200px;
   padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
 `;
 
 const ServiceCard = styled.div`
@@ -199,6 +187,10 @@ const ModalContent = styled.div`
     font-size: 1.8rem;
     color: #333;
     font-weight: 700;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   p {
@@ -206,6 +198,10 @@ const ModalContent = styled.div`
     font-size: 1.1rem;
     color: #555;
     font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -240,27 +236,33 @@ const ReadMoreButton = styled.button`
   }
 `;
 
-const CertificationImagesContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-`;
-
-const CertificationImage = styled.img`
-  height: 150px;
-  width: auto;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
 const ContactUsWrapper = styled.div`
   width: 100%;
-  height: 785px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
+`;
+
+const FooterWrapper = styled.footer`
+  background-color: #f8f9fa;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+`;
+
+const FooterContent = styled.div`
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Services = () => {
@@ -271,59 +273,36 @@ const Services = () => {
     {
       name: "Heat Pumps & AC Systems",
       details:
-        "Choose our expert design and installation services for heat pumps and air conditioning systems that guarantee comfort in your home. Experience unparalleled efficiency and reliability, ensuring that your investment pays off in energy savings and lasting performance.",
+        "Choose our expert design and installation services for heat pumps and air conditioning systems that guarantee comfort in your home. Experience unparalleled efficiency and reliability, ensuring that your investment pays off in the long run.",
       icon: <FaSnowflake />,
-      area: "service1",
     },
     {
-      name: "Underfloor Heating Systems",
+      name: "General Repairs & Maintenance",
       details:
-        "Transform your living space with our underfloor heating systems. We offer bespoke solutions that enhance comfort and optimize energy consumption, backed by expert installation and exceptional service. Invest in your comfort with our trusted expertise.",
+        "Our skilled technicians provide comprehensive repair and maintenance services for all heating and cooling systems. We ensure that your equipment operates efficiently, prolonging its lifespan and saving you money on energy bills.",
       icon: <FaTools />,
-      area: "service2",
     },
     {
-      name: "Service & Repair",
+      name: "Furnaces & Boiler Installation",
       details:
-        "Trust our skilled technicians for comprehensive servicing and repairs of your heating and cooling systems. We ensure optimal performance and reliability, helping you avoid unexpected breakdowns and costly repairs in the future.",
-      icon: <FaHeartbeat />,
-      area: "service3",
-    },
-    {
-      name: "Maintenance",
-      details:
-        "Preventive maintenance is key to long-term performance. Our regular maintenance services keep your systems running efficiently, ensuring a longer lifespan and lower energy bills. Count on us to keep your home comfortable year-round.",
+        "Let our professionals handle the installation of furnaces and boilers to provide efficient heating for your property. We ensure the proper selection and sizing of equipment to meet your specific needs.",
       icon: <FaHome />,
-      area: "service4",
     },
-
     {
-      name: "Certifications",
+      name: "Emergency Services",
       details:
-        "We are certified professionals offering gas safety certifications and more.",
+        "Count on us for reliable emergency heating and cooling services whenever you need assistance. Our team is available 24/7 to provide fast solutions to restore your comfort.",
+      icon: <FaHeartbeat />,
+    },
+    {
+      name: "Energy Efficiency Certifications",
+      details:
+        "Achieve energy efficiency certifications with our expert guidance. We help you understand the requirements and process to achieve certifications that can reduce energy costs and improve sustainability.",
       icon: <FaCertificate />,
-      area: "service5",
-      certificationLinks: [
-        {
-          src: fgas,
-          alt: "FGAS Certification",
-          url: "https://fgasregister.com/",
-        },
-        {
-          src: gasSafe,
-          alt: "Gas Safe Certification",
-          url: "https://www.gassaferegister.co.uk/",
-        },
-        {
-          src: mcs,
-          alt: "MCS Certification",
-          url: "https://mcscertified.com/",
-        },
-      ],
     },
   ];
 
-  const openModal = (service) => {
+  const handleServiceClick = (service) => {
     setSelectedService(service);
     setModalOpen(true);
   };
@@ -338,69 +317,44 @@ const Services = () => {
       <Header />
       <ServiceNavbar />
       <FullWidthImageSection>
-        <div>
-          <Title>Services</Title>
-          <ButtonContainer>
-            <ServiceButton to="/">Home</ServiceButton>
-            <span
-              style={{
-                fontSize: "20px",
-                color: "#e55d50",
-                fontWeight: "bold",
-                userSelect: "none",
-              }}
-            >
-              {" "}
-              {">"}Services
-            </span>
-          </ButtonContainer>
-        </div>
+        <Title>Our Services</Title>
       </FullWidthImageSection>
       <ServicesSection>
         <ServicesGrid>
           {services.map((service) => (
-            <ServiceCard key={service.name} style={{ gridArea: service.area }}>
-              <IconContainer className="icon-container">
-                {service.icon}
-              </IconContainer>
+            <ServiceCard
+              key={service.name}
+              onClick={() => handleServiceClick(service)}
+            >
+              <IconContainer>{service.icon}</IconContainer>
               <ServiceTitle>{service.name}</ServiceTitle>
               <ServiceDescription>
-                {service.details.substring(0, 55)}...
+                {service.details.substring(0, 60)}...
               </ServiceDescription>
-              <ReadMoreButton onClick={() => openModal(service)}>
+              <ReadMoreButton onClick={() => handleServiceClick(service)}>
                 Read More
               </ReadMoreButton>
             </ServiceCard>
           ))}
         </ServicesGrid>
       </ServicesSection>
+      <ContactUsWrapper>
+        <ContactUs />
+      </ContactUsWrapper>
       {isModalOpen && (
-        <ModalOverlay onClick={closeModal}>
-          <ModalContent onClick={(e) => e.stopPropagation()}>
-            <h2>{selectedService?.name}</h2>
-            <p>{selectedService?.details}</p>
-            {selectedService?.name === "Certifications" && (
-              <CertificationImagesContainer>
-                {selectedService.certificationLinks.map((cert, index) => (
-                  <Link
-                    key={index}
-                    to={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <CertificationImage src={cert.src} alt={cert.alt} />
-                  </Link>
-                ))}
-              </CertificationImagesContainer>
-            )}
+        <ModalOverlay>
+          <ModalContent>
+            <h2>{selectedService.name}</h2>
+            <p>{selectedService.details}</p>
             <ModalCloseButton onClick={closeModal}>Close</ModalCloseButton>
           </ModalContent>
         </ModalOverlay>
       )}
-      <ContactUsWrapper>
-        <ContactUs />
-      </ContactUsWrapper>
-      <Footer />
+      <FooterWrapper>
+        <FooterContent>
+          <Footer />
+        </FooterContent>
+      </FooterWrapper>
     </>
   );
 };
