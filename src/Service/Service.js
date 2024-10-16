@@ -51,6 +51,9 @@ const FullWidthImageSection = styled.div`
     padding-left: 20px;
     padding-bottom: 20px;
   }
+  @media (max-width: 940px) and (max-height: 440px) {
+    width: auto;
+  }
 `;
 
 const Title = styled.h1`

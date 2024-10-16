@@ -57,6 +57,22 @@ const NavbarLinks = styled.ul`
     width: 100%;
     padding: 1rem;
     z-index: 1000;
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) and (orientation: landscape) {
+    font-size: 18px;
+  }
+`;
+
+const NavbarListItem = styled.li`
+  margin-bottom: 10px;
+  margin-left: 5px;
+  width: max-content;
+
+  @media (max-width: 768px) and (orientation: landscape) {
+    display: flex;
+    margin-bottom: 8px;
   }
 `;
 
@@ -75,6 +91,14 @@ const NavbarLink = styled(Link)`
   @media (max-width: 768px) {
     font-size: 20px;
     padding: 0.5rem 0;
+  }
+
+  @media (max-width: 768px) and (orientation: landscape) {
+    font-size: 18px;
+  }
+  @media (max-width: 940px) and (max-height: 440px) {
+    margin-left: 10px;
+    text-align: center;
   }
 `;
 
@@ -106,7 +130,7 @@ const QuoteButton = styled(Link)`
     padding: 0.5rem;
   }
 
-  @media (max-width: 932px) and (max-height: 430px) {
+  @media (max-width: 940px) and (max-height: 440px) {
     display: none;
   }
 `;
@@ -134,13 +158,13 @@ const CallButton = styled.a`
     padding: 0.5rem;
   }
 
-  @media (max-width: 932px) and (max-height: 430px) {
+  @media (max-width: 940px) and (max-height: 440px) {
     display: none;
   }
 `;
 
 const HamburgerButton = styled.button`
-  display: none; // Hide by default
+  display: none;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -170,32 +194,32 @@ const Navbar = () => {
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </HamburgerButton>
         <NavbarLinks isOpen={isMenuOpen}>
-          <li>
+          <NavbarListItem>
             <NavbarLink to="/">Home</NavbarLink>
-          </li>
-          <li>
+          </NavbarListItem>
+          <NavbarListItem>
             <NavbarLink to="/aircon">Aircon</NavbarLink>
-          </li>
-          <li>
+          </NavbarListItem>
+          <NavbarListItem>
             <NavbarLink to="/heat-pumps">Heat Pumps</NavbarLink>
-          </li>
-          <li>
+          </NavbarListItem>
+          <NavbarListItem>
             <NavbarLink to="/service">Services</NavbarLink>
-          </li>
-          <li>
+          </NavbarListItem>
+          <NavbarListItem>
             <NavbarLink to="/contact">Contact</NavbarLink>
-          </li>
-          <li>
+          </NavbarListItem>
+          <NavbarListItem>
             <QuoteButton className="quote-button" to="/get-a-quote">
               Get a Quote | <FaArrowRight />
             </QuoteButton>
-          </li>
-          <li>
+          </NavbarListItem>
+          <NavbarListItem>
             <CallButton className="call-button" href={`tel:${phoneNumber}`}>
               <FaPhone style={{ marginRight: "8px", color: "black" }} />
               {phoneNumber}
             </CallButton>
-          </li>
+          </NavbarListItem>
         </NavbarLinks>
       </NavbarWrapper>
     </NavbarContainer>
