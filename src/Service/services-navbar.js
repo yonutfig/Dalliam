@@ -33,6 +33,10 @@ const LogoImage = styled.img`
     width: 150px;
     height: auto;
   }
+
+  @media (max-width: 940px) and (max-height: 440px) {
+    margin-right: 25px;
+  }
 `;
 
 const NavbarLinks = styled.ul`
@@ -97,8 +101,9 @@ const NavbarLink = styled(Link)`
     font-size: 18px;
   }
   @media (max-width: 940px) and (max-height: 440px) {
-    margin-left: 10px;
     text-align: center;
+    font-size: 20px;
+    width: max-content;
   }
 `;
 

@@ -1,16 +1,26 @@
+@use "sass:color";
+
 $primary-color: #e55d50;
 $secondary-color: white;
 $text-color: #333;
 $border-radius: 8px;
 $shadow-color: rgba(0, 0, 0, 0.1);
 $cta-bg: #e55d50;
-$cta-hover-bg: darken($cta-bg, 10%);
+
+$cta-hover-bg: color.adjust($cta-bg, $lightness: -10%);
 $transition: 0.3s ease-in-out;
 
 $base-font-size: 16px;
 $heading-font-family: "Playfair Display", serif;
 $body-font-family: "Roboto", sans-serif;
 $line-height: 1.6;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
 
 .heat-pumps {
   user-select: none;
@@ -92,6 +102,34 @@ $line-height: 1.6;
   }
 }
 
+.cta-button-container {
+  width: 100%;
+  height: max-content;
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  background-color: $cta-bg;
+  color: $secondary-color;
+  text-align: center;
+  text-decoration: none;
+  border-radius: $border-radius;
+  transition: background-color $transition;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $cta-hover-bg;
+  }
+}
+
 @media (max-width: 768px) {
   .heat-pumps {
     grid-template-columns: 1fr;
@@ -104,6 +142,38 @@ $line-height: 1.6;
     .heat-pump-image-container {
       height: 200px;
     }
+  }
+
+  .cta-button-container {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 60vw;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-content {
+    height: auto;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .about-us {
+    position: relative;
+    height: auto;
+    margin: 0;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer-container {
+    position: absolute;
   }
 }
 
@@ -118,11 +188,11 @@ $line-height: 1.6;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin-top: 100px;
+  height: auto;
   padding: 2rem;
   position: relative;
-  margin-top: 400px;
-  margin-bottom: 400px;
+  margin-bottom: 200px;
   font-family: "Playfair Display", serif;
   user-select: none;
 }
@@ -132,7 +202,7 @@ $line-height: 1.6;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: auto;
 
   .about-us-content {
     max-width: 800px;
@@ -177,12 +247,14 @@ $line-height: 1.6;
   margin-top: 200px;
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 }
+
 .slider .list {
   display: flex;
   width: 100%;
   min-width: calc(var(--width) * var(--quantity));
   position: relative;
 }
+
 .slider .list .item {
   width: var(--width);
   height: var(--height);
@@ -194,12 +266,14 @@ $line-height: 1.6;
     (20s / var(--quantity)) * (var(--position) - 1) - 20s
   ) !important;
 }
+
 .slider .list .item img {
   width: 100%;
   border-radius: 8px;
   height: 100%;
   opacity: 0.7;
 }
+
 @keyframes autoRun {
   from {
     left: 100%;
@@ -208,16 +282,20 @@ $line-height: 1.6;
     left: calc(var(--width) * -1);
   }
 }
+
 .slider:hover .item {
   animation-play-state: paused !important;
   filter: grayscale(1);
 }
+
 .slider .item:hover {
   filter: grayscale(0);
 }
+
 .slider[reverse="true"] .item {
   animation: reversePlay 20s linear infinite;
 }
+
 @keyframes reversePlay {
   from {
     left: calc(var(--width) * -1);
@@ -227,33 +305,10 @@ $line-height: 1.6;
   }
 }
 
-.cta-button-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 6rem;
-  position: relative;
-}
-.cta-button {
-  padding: 1rem 2rem;
-  background-color: $cta-bg;
-  color: $secondary-color;
-  text-align: center;
-  text-decoration: none;
-  border-radius: $border-radius;
-  transition: background-color $transition;
-  font-weight: bold;
-  font-size: 1.2rem;
-
-  &:hover {
-    background-color: $cta-hover-bg;
-  }
-}
-
 .footer-container {
-  margin: 0 auto !important;
+  margin: 0 auto;
   position: relative;
-  margin-bottom: 50px !important;
+  margin-bottom: 50px;
 }
 
 .loading {
