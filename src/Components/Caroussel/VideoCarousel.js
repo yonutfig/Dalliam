@@ -71,9 +71,9 @@ const VideoCarousel = () => {
             onCanPlayThrough={handleVideoLoad}
             initial={{ opacity: 0, scale: 1.1, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20, pointerEvents: "none" }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            style={{ willChange: "opacity, transform" }}
+            style={{ willChange: "opacity, transform", pointerEvents: "none" }}
           >
             Your browser does not support the video tag.
           </motion.video>
