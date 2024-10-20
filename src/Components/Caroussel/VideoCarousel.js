@@ -16,6 +16,14 @@ const videoTexts = [
 
 const videoDurations = [9000, 7000, 9000, 9000];
 
+// Detect Safari on iOS
+const isSafari = () => {
+  const ua = navigator.userAgent;
+  return (
+    /iPhone|iPad|iPod/i.test(ua) && /Safari/i.test(ua) && !/CriOS/i.test(ua)
+  );
+};
+
 const VideoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -50,6 +58,10 @@ const VideoCarousel = () => {
 
   const handleVideoLoad = () => {
     setIsVideoLoaded(true);
+
+    if (isSafari()) {
+      document.querySelector("video").play();
+    }
   };
 
   const currentText = videoTexts[currentIndex];
