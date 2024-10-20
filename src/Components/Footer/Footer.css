@@ -181,7 +181,17 @@ body {
     height: auto;
     padding: 1rem;
   }
+  .square1 {
+    display: none;
+  }
 
+  .square2 {
+    display: none;
+  }
+
+  .google-img {
+    display: none;
+  }
   .get-in-touch {
     position: relative;
     left: 0;
@@ -233,11 +243,12 @@ body {
 
   .explore {
     margin-top: 100px;
-    margin-right: 120px;
+    transform: translate(-10%);
   }
 
   .get-in-touch {
     margin-top: 150px;
+    transform: translate(33%);
   }
 
   .square1 {
@@ -254,6 +265,7 @@ body {
 
   .Quote {
     position: absolute;
+    transform: translate(-10%);
   }
 }
 

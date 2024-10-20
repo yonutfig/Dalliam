@@ -1,11 +1,11 @@
 .carousel-container {
   position: relative;
-  width: 88vw;
-  height: 700px;
+  width: 95vw;
+  height: 50vh;
   overflow: hidden;
   border-radius: 8px;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .carousel-video {
@@ -15,98 +15,80 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 1.5s ease-in-out;
-  opacity: 1;
   pointer-events: none;
+  transition: opacity 1.5s ease-in-out;
 }
 
 .carousel-text {
   position: absolute;
   bottom: 20px;
-  left: 7%;
-  transform: translateY(-50%);
+  left: 5%;
   color: #fff;
   font-family: "Playfair Display", serif;
-  font-size: 5rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
   z-index: 1;
-  opacity: 1;
-  transition: opacity 1.5s ease-in-out;
   pointer-events: none;
+  will-change: opacity, transform;
 }
 
-.carousel-text.fade-out {
-  opacity: 0;
-}
-
-.carousel-text.fade-in {
-  opacity: 1;
-}
-
-@media (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1024px) {
   .carousel-container {
     width: 90vw;
-    height: 60vh;
+    height: 70vh;
   }
 
   .carousel-text {
-    font-size: 3.5rem;
+    font-size: 2rem;
     bottom: 15px;
-    left: 5%;
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1025px) {
   .carousel-container {
-    width: 90vw;
-    height: 50vh;
+    width: 88vw;
+    height: 70vh;
   }
 
   .carousel-text {
     font-size: 2.5rem;
-    bottom: 15px;
-    left: 5%;
-  }
-}
-
-@media (min-width: 350px) and (max-width: 480px) {
-  .carousel-container {
-    width: 95vw;
-    height: 40vh;
-  }
-
-  .carousel-text {
-    font-size: 1.5rem;
-    bottom: 10px;
-    left: 3%;
+    bottom: 20px;
   }
 }
 
 @media (orientation: landscape) and (max-width: 768px) {
   .carousel-container {
-    height: 40vh;
+    width: 100vw;
+    height: 70vh;
   }
 
   .carousel-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     bottom: 10px;
   }
 }
 
 @media (orientation: landscape) and (min-width: 769px) and (max-width: 1024px) {
   .carousel-container {
-    height: 88vh;
+    height: 80vh;
+  }
+
+  .carousel-text {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 480px) {
+  .carousel-container {
+    width: 95vw;
+    height: 60vh;
   }
 
   .carousel-text {
     font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-container {
-    height: 88vh;
+    bottom: 10px;
+    left: 3%;
   }
 }

@@ -12,6 +12,9 @@ import {
   FaCertificate,
 } from "react-icons/fa";
 import ContactUs from "../Components/ContactForm/ContactUs";
+import Logo1 from "../Assets/Images/fgas.jpg";
+import Logo2 from "../Assets/Images/gasSafe.png";
+import Logo3 from "../Assets/Images/mcs.png";
 
 const FullWidthImageSection = styled.div`
   position: relative;
@@ -208,6 +211,19 @@ const ModalContent = styled.div`
   }
 `;
 
+const LogoGrid = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const LogoImage = styled.img`
+  width: 80px;
+  height: auto;
+`;
+
 const ModalCloseButton = styled.button`
   background: #e55a53;
   color: white;
@@ -298,7 +314,7 @@ const Services = () => {
       icon: <FaHeartbeat />,
     },
     {
-      name: "Energy Efficiency Certifications",
+      name: "Certifications",
       details:
         "Achieve energy efficiency certifications with our expert guidance. We help you understand the requirements and process to achieve certifications that can reduce energy costs and improve sustainability.",
       icon: <FaCertificate />,
@@ -349,6 +365,13 @@ const Services = () => {
           <ModalContent>
             <h2>{selectedService.name}</h2>
             <p>{selectedService.details}</p>
+            {selectedService.name === "Certifications" && (
+              <LogoGrid>
+                <LogoImage src={Logo1} alt="Logo 1" />
+                <LogoImage src={Logo2} alt="Logo 2" />
+                <LogoImage src={Logo3} alt="Logo 3" />
+              </LogoGrid>
+            )}
             <ModalCloseButton onClick={closeModal}>Close</ModalCloseButton>
           </ModalContent>
         </ModalOverlay>

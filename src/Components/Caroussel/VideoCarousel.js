@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
-import gsap from "gsap";
+import React, { useState, useEffect, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./VideoCarousel.css";
 
 import video1 from "../../Assets/Videos/Human-Hand-Activating-Air-Conditioner-With-Remote-2024-05-14-18-51-02-Utc.mp4";
@@ -16,82 +16,57 @@ const videoTexts = [
 
 const VideoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(false);
-  const textRef = useRef(null);
-  const videoRef = useRef(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const videos = useMemo(() => [video1, video2, video3, video4], []);
   const currentText = videoTexts[currentIndex];
 
   useEffect(() => {
-    videos.forEach((video) => {
-      const videoElement = document.createElement("video");
-      videoElement.src = video;
-      videoElement.preload = "auto";
-    });
-  }, [videos]);
-
-  useEffect(() => {
-    if (textRef.current) {
-      gsap.fromTo(
-        textRef.current,
-        { opacity: 0, x: "100%" },
-        { opacity: 1, x: "0%", duration: 1.5, ease: "power3.out", delay: 0.5 }
-      );
-    }
-  }, [currentIndex]);
-
-  useEffect(() => {
-    const fadeDuration = 1;
-    const fadeStartBeforeEnd = 2000;
     const videoDuration = currentIndex === 1 ? 7000 : 9000;
 
     const interval = setInterval(() => {
-      setFade(true);
-      gsap.to(videoRef.current, {
-        opacity: 0,
-        duration: fadeDuration,
-        ease: "power3.out",
-        onComplete: () => {
-          setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
-          setFade(false);
-          gsap.set(videoRef.current, { opacity: 1 });
-        },
-      });
-    }, videoDuration - fadeStartBeforeEnd);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
+    }, videoDuration);
 
     return () => clearInterval(interval);
   }, [currentIndex, videos.length]);
 
-  const handleVideoEnd = () => {
-    if (textRef.current) {
-      gsap.to(textRef.current, {
-        opacity: 0,
-        duration: 1.5,
-        ease: "power3.out",
-        delay: 0.5,
-      });
-    }
+  const handleVideoLoad = () => {
+    setIsVideoLoaded(true);
   };
 
   return (
     <div className="carousel-container">
-      <video
-        ref={videoRef}
-        className={`carousel-video ${fade ? "fade-out" : "fade-in"}`}
-        autoPlay
-        muted
-        playsInline
-        loop
-        key={currentIndex}
-        onEnded={handleVideoEnd}
+      {!isVideoLoaded && <div className="loading-spinner">Loading...</div>}{" "}
+      <AnimatePresence mode="wait">
+        <motion.video
+          key={currentIndex}
+          src={videos[currentIndex]}
+          className="carousel-video"
+          autoPlay
+          muted
+          playsInline
+          loop
+          preload="metadata"
+          initial={{ opacity: 0, scale: 1.2 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          onCanPlayThrough={handleVideoLoad}
+        >
+          Your browser does not support the video tag.
+        </motion.video>
+      </AnimatePresence>
+      <motion.div
+        className="carousel-text"
+        key={currentText}
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -100 }}
+        transition={{ duration: 1.5, ease: "easeInOut", delay: 0.3 }}
       >
-        <source src={videos[currentIndex]} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div ref={textRef} className="carousel-text">
         {currentText}
-      </div>
+      </motion.div>
     </div>
   );
 };

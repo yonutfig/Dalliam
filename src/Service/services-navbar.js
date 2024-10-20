@@ -57,11 +57,14 @@ const NavbarLinks = styled.ul`
     position: absolute;
     top: 65px;
     left: 0;
-    background: white;
     width: 100%;
     padding: 1rem;
     z-index: 1000;
     font-size: 20px;
+    background-color: white;
+    border-radius: 24px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 768px) and (orientation: landscape) {
@@ -170,11 +173,19 @@ const CallButton = styled.a`
 
 const HamburgerButton = styled.button`
   display: none;
-  background: transparent;
+  background: transparent !important;
   border: none;
   cursor: pointer;
   font-size: 28px;
   color: #ff6f61;
+  padding: 10px;
+  border-radius: 24px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.1);
+  }
 
   @media (max-width: 768px) {
     display: block;
