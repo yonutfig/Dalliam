@@ -48,13 +48,10 @@ const VideoCarousel = () => {
           playsInline
           loop
           preload="metadata"
-          initial={{ opacity: 0, scale: 1.2 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8, pointerEvents: "none" }}
-          transition={{
-            opacity: { duration: 1.5, ease: "easeOut" },
-            scale: { duration: 1.5 },
-          }}
+          initial={{ opacity: 0, scale: 1.1, y: -20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: 20, pointerEvents: "none" }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
           onCanPlayThrough={handleVideoLoad}
         >
           Your browser does not support the video tag.
