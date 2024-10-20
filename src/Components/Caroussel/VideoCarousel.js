@@ -19,6 +19,7 @@ const videoDurations = [9000, 7000, 9000, 9000];
 const VideoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const videos = useMemo(() => [video1, video2, video3, video4], []);
 
@@ -37,7 +38,11 @@ const VideoCarousel = () => {
 
     const videoDuration = videoDurations[currentIndex];
     const timer = setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
+        setIsTransitioning(false);
+      }, 1200);
     }, videoDuration);
 
     return () => clearTimeout(timer);
@@ -53,23 +58,26 @@ const VideoCarousel = () => {
     <div className="carousel-container">
       {!isVideoLoaded && <div className="loading-spinner">Loading...</div>}
       <AnimatePresence mode="wait">
-        <motion.video
-          key={currentIndex}
-          src={videos[currentIndex]}
-          className="carousel-video"
-          autoPlay
-          muted
-          playsInline
-          loop={false}
-          onCanPlayThrough={handleVideoLoad}
-          initial={{ opacity: 0, scale: 1.1, y: -20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 20, pointerEvents: "none" }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          style={{ willChange: "opacity, transform" }}
-        >
-          Your browser does not support the video tag.
-        </motion.video>
+        {!isTransitioning && (
+          <motion.video
+            key={currentIndex}
+            src={videos[currentIndex]}
+            className="carousel-video"
+            autoPlay
+            muted
+            playsInline
+            loop={false}
+            preload="auto"
+            onCanPlayThrough={handleVideoLoad}
+            initial={{ opacity: 0, scale: 1.1, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            style={{ willChange: "opacity, transform" }}
+          >
+            Your browser does not support the video tag.
+          </motion.video>
+        )}
       </AnimatePresence>
       <motion.div
         className="carousel-text"
