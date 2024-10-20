@@ -50,7 +50,7 @@ const VideoCarousel = () => {
           preload="metadata"
           initial={{ opacity: 0, scale: 1.2 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8, pointerEvents: "none" }} // Ensure opacity is 0 and disable pointer events during exit
+          exit={{ opacity: 0, scale: 0.8, pointerEvents: "none" }}
           transition={{
             opacity: { duration: 1.5, ease: "easeOut" },
             scale: { duration: 1.5 },
