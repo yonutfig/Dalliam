@@ -19,6 +19,17 @@ const VideoCarousel = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const videos = useMemo(() => [video1, video2, video3, video4], []);
+
+  useEffect(() => {
+    const preloadVideos = () => {
+      videos.forEach((video) => {
+        const vid = new Image();
+        vid.src = video;
+      });
+    };
+    preloadVideos();
+  }, [videos]);
+
   const currentText = videoTexts[currentIndex];
 
   useEffect(() => {
@@ -37,7 +48,7 @@ const VideoCarousel = () => {
 
   return (
     <div className="carousel-container">
-      {!isVideoLoaded && <div className="loading-spinner">Loading...</div>}{" "}
+      {!isVideoLoaded && <div className="loading-spinner">Loading...</div>}
       <AnimatePresence mode="wait">
         <motion.video
           key={currentIndex}
@@ -47,12 +58,13 @@ const VideoCarousel = () => {
           muted
           playsInline
           loop
-          preload="metadata"
+          preload="auto"
           initial={{ opacity: 0, scale: 1.1, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20, pointerEvents: "none" }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
           onCanPlayThrough={handleVideoLoad}
+          style={{ willChange: "opacity, transform" }}
         >
           Your browser does not support the video tag.
         </motion.video>
@@ -64,6 +76,7 @@ const VideoCarousel = () => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
         transition={{ duration: 1.5, ease: "easeInOut", delay: 0.3 }}
+        style={{ willChange: "opacity, transform" }}
       >
         {currentText}
       </motion.div>
