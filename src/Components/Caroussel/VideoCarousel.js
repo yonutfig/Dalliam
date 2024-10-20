@@ -61,8 +61,8 @@ const VideoCarousel = () => {
           preload="auto"
           initial={{ opacity: 0, scale: 1.1, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 20, pointerEvents: "none" }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          exit={{ opacity: 0, scale: 0.7, y: 20, pointerEvents: "none" }}
+          transition={{ duration: 2, ease: "easeOut" }}
           onCanPlayThrough={handleVideoLoad}
           style={{ willChange: "opacity, transform" }}
         >
@@ -75,7 +75,7 @@ const VideoCarousel = () => {
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 1.5, ease: "easeInOut", delay: 0.3 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
         style={{ willChange: "opacity, transform" }}
       >
         {currentText}
