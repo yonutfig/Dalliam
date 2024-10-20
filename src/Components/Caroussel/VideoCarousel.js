@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./VideoCarousel.css";
 
@@ -14,37 +14,40 @@ const videoTexts = [
   "Reliable Maintenance Service",
 ];
 
+const videoDurations = [9000, 7000, 9000, 9000];
+
 const VideoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const videos = useMemo(() => [video1, video2, video3, video4], []);
 
-  useEffect(() => {
-    const preloadVideos = () => {
-      videos.forEach((video) => {
-        const vid = new Image();
-        vid.src = video;
-      });
-    };
-    preloadVideos();
-  }, [videos]);
-
-  const currentText = videoTexts[currentIndex];
+  const preloadNextVideo = useCallback(
+    (nextIndex) => {
+      const nextVideo = document.createElement("video");
+      nextVideo.src = videos[nextIndex];
+      nextVideo.preload = "auto";
+    },
+    [videos]
+  );
 
   useEffect(() => {
-    const videoDuration = currentIndex === 1 ? 7000 : 9000;
+    const nextIndex = (currentIndex + 1) % videos.length;
+    preloadNextVideo(nextIndex);
 
-    const interval = setInterval(() => {
+    const videoDuration = videoDurations[currentIndex];
+    const timer = setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
     }, videoDuration);
 
-    return () => clearInterval(interval);
-  }, [currentIndex, videos.length]);
+    return () => clearTimeout(timer);
+  }, [currentIndex, videos, preloadNextVideo]);
 
   const handleVideoLoad = () => {
     setIsVideoLoaded(true);
   };
+
+  const currentText = videoTexts[currentIndex];
 
   return (
     <div className="carousel-container">
@@ -57,13 +60,12 @@ const VideoCarousel = () => {
           autoPlay
           muted
           playsInline
-          loop
-          preload="auto"
+          loop={false}
+          onCanPlayThrough={handleVideoLoad}
           initial={{ opacity: 0, scale: 1.1, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.7, y: 20, pointerEvents: "none" }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          onCanPlayThrough={handleVideoLoad}
+          exit={{ opacity: 0, scale: 0.9, y: 20, pointerEvents: "none" }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           style={{ willChange: "opacity, transform" }}
         >
           Your browser does not support the video tag.
@@ -75,7 +77,7 @@ const VideoCarousel = () => {
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
+        transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}
         style={{ willChange: "opacity, transform" }}
       >
         {currentText}
