@@ -19,10 +19,7 @@ const HeaderTop = styled.div`
   background-color: black;
   color: white;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-  @media (max-width: 768px), (orientation: landscape) {
+  @media (max-width: 768px), (orientation: landscape) and (max-height: 768px) {
     display: none;
   }
 `;
@@ -64,7 +61,7 @@ const Header = () => {
         </div>
         <div>
           <a
-            href="mailto:info@yourcompany.com"
+            href="mailto:info@Dalliam.co.uk"
             style={{ color: "white", textDecoration: "none" }}
           >
             <span>Email: info@Dalliam.co.uk</span>
