@@ -4,16 +4,16 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import "./HeatPump.scss";
 import ParticlesComponent from "../Components/Particles/particles";
-import image1 from "../Assets/Images/1.jpg";
-import image2 from "../Assets/Images/2.jpg";
-import image3 from "../Assets/Images/3.jpg";
-import image4 from "../Assets/Images/4.jpg";
-import image5 from "../Assets/Images/5.jpg";
-import image6 from "../Assets/Images/6.jpg";
-import image7 from "../Assets/Images/7.jpg";
-import image8 from "../Assets/Images/8.jpg";
-import image9 from "../Assets/Images/9.jpeg";
-import image10 from "../Assets/Images/10.jpg";
+import image1 from "../Assets/Images/1.webp";
+import image2 from "../Assets/Images/2.webp";
+import image3 from "../Assets/Images/3.webp";
+import image4 from "../Assets/Images/4.webp";
+import image5 from "../Assets/Images/5.webp";
+import image6 from "../Assets/Images/6.webp";
+import image7 from "../Assets/Images/7.webp";
+import image8 from "../Assets/Images/8.webp";
+import image9 from "../Assets/Images/9.webp";
+import image10 from "../Assets/Images/10.webp";
 
 const images = [
   image1,
@@ -128,7 +128,7 @@ const HeatPumps = () => {
                   key={index}
                   style={{ "--position": index + 1 }}
                 >
-                  <img src={image} alt={`Slide ${index + 1}`} />
+                  <img src={image} alt={`Slide ${index + 1}`} loading="lazy" />
                 </div>
               ))}
             </div>
