@@ -85,6 +85,7 @@ const QuoteButton = styled(Link)`
   background-color: #e55d50;
   color: white;
   padding: 12px 24px;
+  width: max-content;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
