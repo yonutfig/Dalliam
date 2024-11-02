@@ -7,7 +7,6 @@ import Header from "./Header";
 import {
   FaSnowflake,
   FaTools,
-  FaHome,
   FaHeartbeat,
   FaCertificate,
 } from "react-icons/fa";
@@ -99,7 +98,7 @@ const ServiceCard = styled.div`
   overflow: hidden;
   background-color: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 50px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   text-align: center;
@@ -300,12 +299,6 @@ const Services = () => {
       details:
         "Our skilled technicians provide comprehensive repair and maintenance services for all heating and cooling systems. We ensure that your equipment operates efficiently, prolonging its lifespan and saving you money on energy bills.",
       icon: <FaTools />,
-    },
-    {
-      name: "Furnaces & Boiler Installation",
-      details:
-        "Let our professionals handle the installation of furnaces and boilers to provide efficient heating for your property. We ensure the proper selection and sizing of equipment to meet your specific needs.",
-      icon: <FaHome />,
     },
     {
       name: "Emergency Services",

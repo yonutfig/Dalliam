@@ -14,7 +14,7 @@ const NavbarWrapper = styled.nav`
   align-items: center;
   padding: 1rem 2rem;
   border-radius: 24px;
-  width: 88vw;
+  width: 100vw;
   margin: 0 auto;
   height: 65px;
   margin-top: 20px;
@@ -26,7 +26,7 @@ const NavbarWrapper = styled.nav`
 `;
 
 const LogoImage = styled.img`
-  width: 200px;
+  width: 180px;
   height: 80px;
 
   @media (max-width: 768px) {
@@ -74,8 +74,8 @@ const NavbarLinks = styled.ul`
 
 const NavbarListItem = styled.li`
   margin-bottom: 10px;
-  margin-left: 5px;
   width: max-content;
+  margin-left: 30px;
 
   @media (max-width: 768px) and (orientation: landscape) {
     display: flex;
@@ -133,12 +133,11 @@ const QuoteButton = styled(Link)`
     margin-left: 8px;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 20px;
     padding: 0.5rem;
   }
-
-  @media (max-width: 940px) and (max-height: 440px) {
+  @media (max-width: 1025px) {
     display: none;
   }
 `;
@@ -161,9 +160,10 @@ const CallButton = styled.a`
     text-decoration: underline;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 20px;
     padding: 0.5rem;
+    display: none;
   }
 
   @media (max-width: 940px) and (max-height: 440px) {
@@ -211,7 +211,9 @@ const Navbar = () => {
         </HamburgerButton>
         <NavbarLinks isOpen={isMenuOpen}>
           <NavbarListItem>
-            <NavbarLink to="/">Home</NavbarLink>
+            <NavbarLink to="/" style={{ marginLeft: "10px" }}>
+              Home
+            </NavbarLink>
           </NavbarListItem>
           <NavbarListItem>
             <NavbarLink to="/aircon">Aircon</NavbarLink>

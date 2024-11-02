@@ -354,3 +354,104 @@ body {
     border-radius: 8px;
   }
 }
+@media (min-width: 340px) and (max-width: 380px) {
+  .color-square {
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    transform: translate(-53%, 35%);
+    width: 150px;
+    height: 150px;
+    background-color: #e55d50;
+    z-index: -1;
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 760px) and (max-width: 770px) {
+  .color-square {
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    transform: translate(-50%, 40%);
+    width: 150px;
+    height: 150px;
+    background-color: #e55d50;
+    z-index: -1;
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 530px) and (max-width: 545px) {
+  .color-square {
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    transform: translate(-45%, 35%);
+    width: 150px;
+    height: 150px;
+    background-color: #e55d50;
+    z-index: -1;
+    border-radius: 8px;
+  }
+  .feature {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 710px) and (max-width: 725px) and (orientation: landscape) {
+  .color-square {
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    transform: translate(-45%, 35%);
+    width: 150px;
+    height: 150px;
+    background-color: #e55d50;
+    z-index: -1;
+    border-radius: 8px;
+  }
+  .feature {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 665px) and (max-width: 670px) and (orientation: landscape) {
+  .color-square {
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    transform: translate(-45%, 35%);
+    width: 150px;
+    height: 150px;
+    background-color: #e55d50;
+    z-index: -1;
+    border-radius: 8px;
+  }
+  .feature {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 665px) and (max-width: 750px) and (orientation: landscape) {
+  .feature {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1360px) and (max-width: 1370px) and (orientation: landscape) {
+  .feature {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1170px) and (max-width: 1370px) and (orientation: landscape) {
+  .feature {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
