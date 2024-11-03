@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ServiceNavbar from "./services-navbar";
 import Footer from "../Components/Footer/Footer";
-import Meeting from "../Assets/Images/meeting.jpg";
+import Meeting from "../Assets/Images/meeting.webp";
 import Header from "./Header";
 import {
   FaSnowflake,
